@@ -8,10 +8,10 @@ assign in_ready = ~valid_reg || out;
 assign out_valid = valid_reg;
 assign out_data = data_reg;
 always_ff @(posedge clk or negedge rstn) begin
-  if(!rstn)
+  if(!rstn) begin 
     valid_reg<=1'b0;
     data_reg  <= '0;
-  else begin 
+  end else begin 
          case ({in,out})
               2'b10: begin 
                        data_reg<=in_data;
